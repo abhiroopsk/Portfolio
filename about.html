@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang = "en">
+   <head>
+      
+<!--       
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet" style="background-color: gray;"> -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+     
+      <script>
+         $(function() {
+            $( ".accordion" ).accordion({
+               collapsible: true,active: false
+            });
+         });
+      </script>
+      
+      <style>
+        
+         .accordion{
+           
+             font-size: 14px;
+             width: 70vw;
+             padding-left: 14%;
+             padding-right: 14%;
+             flex-direction: column;
+             text-align: center;
+             font-size: 20px;
+             }
+
+         #profile {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #footer {
+            padding: 20px;
+            text-align: center;
+          
+        }
+        table, th, td {
+  border: 2px solid rgb(90, 75, 75);
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+#table{
+  width: 100%;   
+  background-color: rgb(233, 153, 153);
+  color: #990033; 
+      
+}
+/* .active, .innertext:hover {
+  background-color: rgb(223, 223, 223); 
+  color: white;
+} */
+
+      </style>
+   </head>
+   
+   <body>
+    <body style="background-image: url('https://ik.imagekit.io/pape6318/products/legacy/pastel_pink_solid_sq.jpg?tr=w-320');">
+    
+        <h1 style="text-align: center; font-size: 30px;" >About me</h1>
+       
+        <a>
+            <img id="profile" src="https://drive.google.com/thumbnail?id=12C-60ALfUohCSA9On-UXFizM0LRtkOMx"
+                alt="Abhiroop Singh" style="width:300px; border-radius: 60%; height:300px;">
+        </a>
+        <br><br>
+      <div class= "accordion">
+         <h3 class="text" style="padding: 10px; border: black solid 1px; background-color: rgb(78, 67, 67) ;color: white;" >Introduction</h3>
+         <div>
+            <p class="innertext">
+               I am currently pursuing B.Tech in Computer Science from University Institute of Engineering and Technology, Panjab University, Chandigrah. I am from Amritsar, Punjab.
+            </p>
+         </div>
+         <h3 class="text" style="padding: 10px; border: black solid 1px; background-color: rgb(78, 67, 67) ;color: white;">Interests</h3>
+         <div>
+            <p>
+              I like working with Technology and nowadays I am exploring my interests.  
+            </p>
+         </div>
+         <h3 class="text" style="padding: 10px; border: black solid 1px; background-color: rgb(78, 67, 67) ;color: white;">Social Media</h3>
+         <div>
+            <div id="footer" >
+              
+                
+                <a class="social" href="mailto:abhiroopsk@gmail.com" style="color: rgb(172, 149, 149);"><img style="width:30px; height:30px; " src="https://www.freepnglogos.com/uploads/logo-gmail-png/logo-gmail-png-gmail-icon-download-png-and-vector-1.png" alt="Gmail"></a>
+                <a class="social" href="https://www.linkedin.com/in/abhiroop-singh-a50460200" style="color: rgb(172, 149, 149);"><img  style="width:30px; height:30px;" src="https://image.flaticon.com/icons/png/512/61/61109.png" alt="LinkedIn"></a>
+                <a class="social" href="https://www.instagram.com/abhiroop_singh_/" style="color: rgb(172, 149, 149);"><img  style="width:30px; height:30px; " src="https://www.transparentpng.com/thumb/logo-instagram/eerDTf-logo-instagram-clipart-transparent.png" alt="Instagram"></a>
+                
+            </div>
+            
+         </div>
+         <h3 class="text" style="padding: 10px; border: black solid 1px; background-color: rgb(78, 67, 67) ;color: white;" >Education</h3>
+         <div>
+            <table id="table">
+                <tr>
+                  <th>Class</th>
+                  <th>Institution</th> 
+                  <th>Marks</th>
+                </tr>
+                <tr>
+                  <td>Class 10</td>
+                  <td>The Senior Study II, Amritsar, Punjab</td>
+                  <td>90%</td>
+                </tr>
+                <tr>
+                  <td>Class 12</td>
+                  <td>The Senior Study II, Amritsar, Punjab</td>
+                  <td>94.6%</td>
+                </tr>
+                
+              </table>
+      </div>
+   </body>
+</html>
