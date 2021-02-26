@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".box2").hover(function () {
+                $(this).css("background-color", "darkorchid");
+                $(".box4").css("background-color", "rgb(199, 226, 103)");
+            }, function () {
+                $(this).css("background-color", "rgb(199, 226, 103)");
+                $(".box4").css("background-color", "darkorchid");
+            })
+        })
+        $(document).ready(function () {
+            $(".box4").hover(function () {
+                $(this).css("background-color", "rgb(199, 226, 103)");
+                $(".box2").css("background-color", "darkorchid");
+            }, function () {
+                $(this).css("background-color", "darkorchid");
+                $(".box2").css("background-color", "rgb(199, 226, 103)");
+            })
+        })
+
+        $(document).ready(function () {
+            $(".box6").click(function () {
+                $("#q").replaceWith(function () {
+                    var newimage = $('<img src="https://hackernoon.com/hn-images/1*4gfqUG6z6HtvQJnCztzckQ.png" width="100%" height="100%"> ');
+                    $(".box6").append(newimage);
+                })
+                
+            })
+        })
+
+        $(document).ready(function () {
+            $(".box1").click(function () {
+                $(".box3").append("<p>This text has been added</p>");
+
+            })
+        })
+
+
+    </script>
+    <style>
+        /* img {
+            display: flex;
+            max-height: 100%;
+            min-width: 100%;
+            object-fit: fill;
+  
+            flex: 2;
+
+            vertical-align: bottom;
+        } */
+
+        .everycontainer {
+            display: flex;
+            flex-direction: column;
+            width: 40vw;
+            font-size: 18px;
+            text-align: center;
+            margin: auto;
+            border: 15px solid white;
+
+        }
+
+        .container1 {
+            display: flex;
+            border: 2px;
+        }
+
+        .container2 {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .container3 {
+            display: flex;
+            flex-direction: column;
+            flex: 2;
+        }
+
+        .container2and3 {
+            display: flex;
+            height: 60vh;
+
+        }
+
+        .container4 {
+            display: flex;
+            height: 15vh;
+
+        }
+
+        .container5 {
+            display: flex;
+
+        }
+
+        .box1 {
+            background-color: darkcyan;
+            flex: 1;
+            border: 3px solid white;
+        }
+
+        .box2 {
+            background-color: rgb(199, 226, 103);
+            height: 65%;
+            border: 3px solid white;
+        }
+
+        .box3 {
+            background-color: darkorange;
+            height: 45%;
+            border: 3px solid white;
+        }
+
+        .box4 {
+            background-color: darkorchid;
+            height: 35%;
+            border: 3px solid white;
+        }
+
+        .box5 {
+            background-color: red;
+            height: 55%;
+            border: 3px solid white;
+        }
+
+        .box6 {
+            background-color: rgb(238, 155, 206);
+            flex: 2;
+            border: 3px solid white;
+
+        }
+
+        .box7 {
+            background-color: rgb(103, 219, 219);
+            flex: 1;
+            border: 3px solid white;
+        }
+
+        .box8 {
+            background-color: rgb(103, 219, 147);
+            flex: 1;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="everycontainer">
+        <div class="container1">
+            <div class="box1">
+                <p>Header</p>
+            </div>
+        </div>
+        <div class="container2and3">
+            <div class="container2">
+                <div class="box2">
+                    <p>Hero</p>
+                </div>
+                <div class="box4">
+                    <p>Sidebar</p>
+                </div>
+            </div>
+            <div class="container3">
+                <div class="box3">
+                    <p>Main Content</p>
+                </div>
+                <div class="box5">
+                    <p>Extra</p>
+                </div>
+            </div>
+        </div>
+        <div class="container4">
+            <div class="box6">
+                <p id="q">Images</p>
+            </div>
+            <div class="box7">
+                <p>Posts</p>
+            </div>
+        </div>
+        <div class="container5">
+            <div class="box8">
+                <p>Footer</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
