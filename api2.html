@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head runat="server">  
+        <title>YouTube Videos List</title>  
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+      
+
+     <style>
+         body {  
+    background: #f4f4f4;  
+    font-family: Arial,sans-serif;  
+    font-size: 14px;  
+    color: #666;  
+}  
+#container {  
+    width: 800px;  
+    height: auto;  
+    overflow: auto;  
+    background: #fff;  
+    padding: 15px;  
+} 
+
+     </style>
+     <script>
+         var channelName = 'battlebots';  
+var vidHeight = 400;  
+var vidWidth = 500;  
+var vidMaxResult = 5; // Maximum can be 50
+  
+$(document).ready(function () {  
+    $.get("https://www.googleapis.com/youtube/v3/channels", {  
+        part: 'contentDetails',  
+        forUsername: channelName,  
+        key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
+    },  
+        function (data) {  
+            $.each(data.items, function (i, item) {  
+                console.log(item); // See in Browser Console  
+                pid = item.contentDetails.relatedPlaylists.uploads;  
+                getVideos(pid);  
+            })  
+        }  
+        );  
+    function getVideos(pid)  
+    {  
+        $.get("https://www.googleapis.com/youtube/v3/playlistItems", {  
+            part: 'snippet',  
+            maxResults: vidMaxResult,  
+            playlistId:pid,  
+            key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
+        },  
+       function (data) {  
+           var outputVideo;  
+           $.each(data.items, function (i, item) {  
+               console.log(item); // See in Browser Console  
+               vidId = item.snippet.resourceId.videoId;  
+               outputVideo = '<li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + vidId + '"> </iframe></li>';  
+  
+               //Append to result list  
+               $('#result').append(outputVideo);  
+           })  
+       }  
+       );  
+    }  
+}); 
+     </script>
+
+    </head>  
+    <body>  
+       
+        <div id="container">  
+            <h1>You tube vidoes</h1>  
+            <ol id="result">  
+            </ol>  
+        </div>  
+        
+    </body> 
+</html>
+<!-- uploads:UUBqFKDipsnzvJdt6UT0lMIg -->
