@@ -1,81 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head runat="server">  
-        <title>YouTube Videos List</title>  
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-      
+<head runat="server">
+    <title>Youtube Videos</title>
 
-     <style>
-         body {  
-    background: #f4f4f4;  
-    font-family: Arial,sans-serif;  
-    font-size: 14px;  
-    color: #666;  
-}  
-#container {  
-    width: 800px;  
-    height: auto;  
-    overflow: auto;  
-    background: #fff;  
-    padding: 15px;  
-} 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-     </style>
-     <script>
-         var channelName = 'battlebots';  
-var vidHeight = 400;  
-var vidWidth = 500;  
-var vidMaxResult = 5; // Maximum can be 50
-  
-$(document).ready(function () {  
-    $.get("https://www.googleapis.com/youtube/v3/channels", {  
-        part: 'contentDetails',  
-        forUsername: channelName,  
-        key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
-    },  
-        function (data) {  
-            $.each(data.items, function (i, item) {  
-                console.log(item); // See in Browser Console  
-                pid = item.contentDetails.relatedPlaylists.uploads;  
-                getVideos(pid);  
-            })  
-        }  
-        );  
-    function getVideos(pid)  
-    {  
-        $.get("https://www.googleapis.com/youtube/v3/playlistItems", {  
-            part: 'snippet',  
-            maxResults: vidMaxResult,  
-            playlistId:pid,  
-            key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
-        },  
-       function (data) {  
-           var outputVideo;  
-           $.each(data.items, function (i, item) {  
-               console.log(item); // See in Browser Console  
-               vidId = item.snippet.resourceId.videoId;  
-               outputVideo = '<li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + vidId + '"> </iframe></li>';  
-  
-               //Append to result list  
-               $('#result').append(outputVideo);  
-           })  
-       }  
-       );  
-    }  
-}); 
-     </script>
 
-    </head>  
-    <body>  
-       
-        <div id="container">  
-            <h1>You tube vidoes</h1>  
-            <ol id="result">  
-            </ol>  
-        </div>  
-        
-    </body> 
+
+    <link href="/static/portfolio/CSS/api.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+     
+    <script src="/static/portfolio/JS/api.js"></script> 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+        body {
+            background:#95a5a6;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        #container {
+            width: 800px;
+            margin: auto;
+            height: auto;
+            overflow: auto;
+            background-color:#bdc3c7;
+            padding: 15px;
+        }
+
+        .accordion {
+
+            font-size: 14px;
+
+            padding-left: 14%;
+            padding-right: 14%;
+            flex-direction: column;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+
+    <!-- <script>
+        $(function () {
+            $(".accordion").accordion({
+                collapsible: true, active: false
+            });
+        });
+    </script> -->
+    <script>
+        var channelName = 'battlebots';
+        var vidHeight = 400;
+        var vidWidth = 500;
+        var vidMaxResult = 5; // Maximum can be 50
+
+        $(document).ready(function () {
+            $.get("https://www.googleapis.com/youtube/v3/channels", {
+                part: 'contentDetails',
+                forUsername: channelName,
+                key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
+            },
+                function (data) {
+                    $.each(data.items, function (i, item) {
+                        console.log(item); // See in Browser Console  
+                        pid = item.contentDetails.relatedPlaylists.uploads;
+                        getVideos(pid);
+                    })
+                }
+            );
+            function getVideos(pid) {
+                $.get("https://www.googleapis.com/youtube/v3/playlistItems", {
+                    part: 'snippet',
+                    maxResults: vidMaxResult,
+                    playlistId: pid,
+                    key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
+                },
+                    function (data) {
+                        var outputVideo;
+                        $.each(data.items, function (i, item) {
+                            console.log(item); // See in Browser Console  
+                            vidId = item.snippet.resourceId.videoId;
+                            outputVideo = '<li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + vidId + '"> </iframe></li>';
+
+                            //Append to result list  
+                            $('#result').append(outputVideo);
+                        })
+                    }
+                );
+            }
+        }); 
+    </script>
+    <!-- <script>
+        var channelName = 'SandeepSeminars';
+        var vidHeight = 200;
+        var vidWidth = 300;
+        var vidMaxResult = 5; // Maximum can be 50
+
+        $(document).ready(function () {
+            $.get("https://www.googleapis.com/youtube/v3/channels", {
+                part: 'contentDetails',
+                forUsername: channelName,
+                key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
+            },
+                function (data) {
+                    $.each(data.items, function (i, item) {
+                        console.log(item); // See in Browser Console  
+                        pid = item.contentDetails.relatedPlaylists.uploads;
+                        getVideos(pid);
+                    })
+                }
+            );
+            function getVideos(pid) {
+                $.get("https://www.googleapis.com/youtube/v3/playlistItems", {
+                    part: 'snippet',
+                    maxResults: vidMaxResult,
+                    playlistId: pid,
+                    key: 'AIzaSyCWzD5U1pNqDNJoDtpX5WZNVrYKzAIUmeI' //Browser API Key  
+                },
+                    function (data) {
+                        var outputVideo;
+                        $.each(data.items, function (i, item) {
+                            console.log(item); // See in Browser Console  
+                            vidId = item.snippet.resourceId.videoId;
+                            outputVideo = '<li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + vidId + '"> </iframe></li>';
+
+                            //Append to result list  
+                            $('#result').append(outputVideo);
+                        })
+                    }
+                );
+            }
+        }); 
+    </script> -->
+
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Watch most popular Youtube Videos here</h1>
+        <div class="accordion">
+            <h3 class="text"
+                style="padding: 10px; border: black solid 1px; background-color: rgb(78, 67, 67) ;color: white;">
+               BATTLEBOTS</h3>
+            <div>
+
+               
+            </div>
+            <!-- <h3 class="text"
+                style="padding: 10px; border: black solid 1px; background-color: rgb(78, 67, 67) ;color: white;">
+               SANDEEP MAHESHWARI</h3>
+            <div>
+             
+                 
+            </div> -->
+        </div>
+        <ol id="result">
+        </ol>
+    </div>
+
+</body>
+
 </html>
 <!-- uploads:UUBqFKDipsnzvJdt6UT0lMIg -->
