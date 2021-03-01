@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <title>Bill Split Calculator</title>
+    <style type="text/css">
+        body {
+            background-color: #dfe6e9;
+            text-align: center;
+        }
+
+        .relative {
+            position: relative;
+            width: 600px;
+            height: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #3090C7;
+        }
+
+        .box{
+           margin: auto;
+           width: 20vw;
+           padding: 20px;
+         background-color: white;
+            text-align: center;
+          border-radius: 6%;
+            
+
+        }
+      button{
+          padding: 10px 20px 10px 20px;
+          border-radius: 3%;
+      }
+      input[type=text] {
+  border: 2px solid rgb(156, 107, 107);
+  border-radius: 4px;
+}
+        
+input[type=text] {
+  width: 80%;
+  padding: 9px 14px;
+  /* margin: 8px 0; */
+  box-sizing: border-box;
+}
+button{
+    background-color: #f0fa64;
+}
+button:hover{
+    color: white;
+    background-color: tomato;
+}
+    
+    </style>
+</head>
+<script>
+    function divide() {
+        num1 = document.getElementById("firstno").value;
+        num2 = document.getElementById("secondno").value;
+        if (num2==0) {
+            num2=1;
+        }
+
+        document.getElementById("result").innerHTML = num1 / num2;
+    }
+    function main() {
+        document.getElementById("contribution").innerHTML = "Contribution Per Person = $";
+    }
+    function check(){
+        if (num1==0) {
+            alert('Enter values');
+        }
+    }
+  
+    
+</script>
+
+<body>
+
+    <br>
+    <h1 style="color:darkslateblue">Bill Split Calculator</h1>
+    <br>
+
+    <div class="box">
+        <h2>Amount Calculator</h2>
+        <p>Enter Bill Amount!</p>
+        $ <input type="text" id="firstno"placeholder="Bill Amount" /><br>
+        <br>
+        <p>How many people are sharing the bill? </p>
+        <input type="text" id="secondno" placeholder="Number of People(Default 1)"/><br>
+        <br>
+        <button id="button" onclick=" main();divide();check()">Calculate</button>
+        <br>
+        <br>
+        <span  id="contribution"></span> <span id="result"></span>
+    </div>
+</body>
+
+</html>
